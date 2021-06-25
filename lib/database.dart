@@ -51,7 +51,12 @@ class Database {
   }
 
   Future<void> update(String id, String name, String code) async {
-    try {} catch (e) {
+    try {
+      await firestore
+          .collection("countries")
+          .doc(id)
+          .update({'name': name, 'code': code});
+    } catch (e) {
       print(e);
     }
   }
