@@ -9,6 +9,7 @@ class Database {
     firestore = FirebaseFirestore.instance;
   }
 
+//Metodo para agregar o crear nueva coleccion
   Future<void> create(String name, String code) async {
     try {
       await firestore.collection("countries").add({
@@ -21,6 +22,16 @@ class Database {
     }
   }
 
+//Metodo para eliminar
+  Future<void> delete(String id) async {
+    try {
+      await firestore.collection("countries").doc(id).delete();
+    } catch (e) {
+      print(e);
+    }
+  }
+
+//Metodo para leer informacion
   Future<List> read() async {
     QuerySnapshot querySnapshot;
 
@@ -35,6 +46,12 @@ class Database {
         return docs;
       }
     } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<void> update(String id, String name, String code) async {
+    try {} catch (e) {
       print(e);
     }
   }
