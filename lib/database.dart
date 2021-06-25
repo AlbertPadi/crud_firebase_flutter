@@ -9,11 +9,24 @@ class Database {
     firestore = FirebaseFirestore.instance;
   }
 
+  Future<void> create(String name, String code) async {
+    try {
+      await firestore.collection("countries").add({
+        'name': name,
+        'code': code,
+        'timestamp': FieldValue.serverTimestamp()
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
   Future<List> read() async {
     QuerySnapshot querySnapshot;
 
     try {
-      querySnapshot = await firestore.collection('countries').get();
+      querySnapshot =
+          await firestore.collection('countries').orderBy('timestamp').get();
       if (querySnapshot.docs.isNotEmpty) {
         for (var doc in querySnapshot.docs.toList()) {
           Map a = {"id": doc.id, "name": doc['name'], "code": doc['code']};
