@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'database.dart';
 
 class View extends StatefulWidget {
+  View({Key key, this.country, this.db}) : super(key: key);
   Map country;
   Database db;
   @override

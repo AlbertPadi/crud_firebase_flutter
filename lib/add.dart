@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'database.dart';
 
 class Add extends StatefulWidget {
+  Add({Key key, this.db}) : super(key: key);
   Database db;
   @override
   _AddState createState() => new _AddState();
