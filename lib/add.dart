@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+// ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'database.dart';
 
+// ignore: must_be_immutable
 class Add extends StatefulWidget {
   Add({Key key, this.db}) : super(key: key);
   Database db;
@@ -57,6 +59,7 @@ class _AddState extends State<Add> {
         color: Colors.transparent,
         child: BottomAppBar(
           color: Colors.transparent,
+          // ignore: deprecated_member_use
           child: RaisedButton(
             color: Colors.black,
             onPressed: () {
