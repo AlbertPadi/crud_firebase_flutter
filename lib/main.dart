@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:crud_firebase_flutter/add.dart';
+import 'package:crud_firebase_flutter/database.dart';
 
 Future<void> main() async {
   await Firebase.initializeApp();
